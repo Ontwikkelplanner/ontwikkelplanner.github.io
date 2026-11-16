@@ -8,15 +8,24 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="hero">
+  <div class="hero-inner">
+    <picture>
+      <source srcset="assets/icon-dark.png" media="(prefers-color-scheme: dark)">
+      <img class="icon" src="assets/icon-light.png" alt="Yakuman app icon">
+    </picture>
+    <div>
+      <p class="app">OntwikkelPlanner</p>
+      <h1 class="serif">Apps</h1>
+      <p class="meta">Support and privacy pages · Support- en privacypagina's</p>
+    </div>
+    <div class="tiles" aria-hidden="true"><span class="tile white"></span><span class="tile green">發</span><span class="tile red">中</span></div>
+  </div>
+</div>
 <main>
-  <header>
-    <p class="app">OntwikkelPlanner</p>
-    <h1>Apps</h1>
-    <p class="meta">Support and privacy pages · Support- en privacypagina's</p>
-  </header>
 
   <section class="card">
-    <h2>Yakuman: Riichi Mahjong</h2>
+    <h2 class="serif">Yakuman: Riichi Mahjong</h2>
     <p>Learn and improve at Riichi Mahjong, offline, with an AI coach that explains.<br>
     Leer en verbeter je Riichi Mahjong, offline, met een AI-coach die uitlegt.</p>
     <p><a href="yakuman/support/">Support</a> · <a href="yakuman/privacy/">Privacy Policy</a></p>

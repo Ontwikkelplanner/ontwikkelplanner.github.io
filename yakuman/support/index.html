@@ -8,12 +8,22 @@
   <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
+<div class="hero">
+  <div class="hero-inner">
+    <picture>
+      <source srcset="../../assets/icon-dark.png" media="(prefers-color-scheme: dark)">
+      <img class="icon" src="../../assets/icon-light.png" alt="Yakuman app icon">
+    </picture>
+    <div>
+      <p class="app">Yakuman: Riichi Mahjong</p>
+      <h1 class="serif">Support</h1>
+      
+    </div>
+    <div class="tiles" aria-hidden="true"><span class="tile white"></span><span class="tile green">發</span><span class="tile red">中</span></div>
+  </div>
+</div>
 <main>
-  <header>
-    <p class="app">Yakuman: Riichi Mahjong</p>
-    <h1>Support</h1>
-    <nav class="lang"><a href="#english">English</a><a href="#nederlands">Nederlands</a></nav>
-  </header>
+  <nav class="lang"><a href="#english">English</a><a href="#nederlands">Nederlands</a></nav>
 
   <article id="english">
     <section class="card">
@@ -35,7 +45,7 @@
   <hr>
 
   <article id="nederlands" lang="nl">
-    <h2 style="font-size:1.6rem">Support</h2>
+    <h2 class="section-title serif">Support</h2>
 
     <section class="card">
       <h2>Contact</h2>

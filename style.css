@@ -1,21 +1,36 @@
-/* Shared style for the OntwikkelPlanner app pages. System fonts only: nothing is loaded from elsewhere. */
+/* Yakuman pages: Sumi & Washi in light mode, Porselein in dark mode (same tokens as the app).
+   System fonts only (New York serif on Apple devices); nothing is loaded from elsewhere. */
 :root {
   --bg: #f4eee1;
+  --table: #e8dfcb;
+  --table-edge: #dbd0b8;
   --surface: #fcf8ee;
+  --tile-mid: #e7dcc4;
+  --tile-back: #2a3f6e;
   --text: #1d1b18;
   --muted: #5e5a52;
   --line: #e2d8c3;
   --accent: #c2412b;
+  --ink-red: #c2412b;
+  --ink-green: #3b6a48;
+  --ink-blue: #2a3f6e;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #10231f;
+    --table: #1f3c35;
+    --table-edge: #142b26;
     --surface: #17302a;
+    --tile-mid: #dedcd3;
+    --tile-back: #2f7a6a;
     --text: #eef4f1;
     --muted: #a9bdb6;
     --line: #2a4a42;
     --accent: #f2c14e;
+    --ink-red: #d2463a;
+    --ink-green: #1d8a5a;
+    --ink-blue: #2654a6;
     color-scheme: dark;
   }
 }
@@ -26,27 +41,85 @@ body {
   color: var(--text);
   font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+.serif { font-family: ui-serif, "New York", "Hiragino Mincho ProN", Georgia, "Times New Roman", serif; }
+
+/* Hero: the table */
+.hero {
+  background: radial-gradient(ellipse at 50% 20%, var(--table), var(--table-edge));
+  border-bottom: 1px solid var(--line);
+}
+.hero-inner {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.5rem max(1rem, env(safe-area-inset-right)) 2rem max(1rem, env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 19px;
+  flex: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+.hero .app { margin: 0; color: var(--muted); font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.hero h1 { margin: 0.1rem 0 0; font-size: 2.1rem; line-height: 1.15; font-weight: 700; }
+.hero .meta { margin: 0.35rem 0 0; }
+
+/* Three tiles as an ornament */
+.tiles { display: flex; gap: 6px; margin-left: auto; }
+.tile {
+  width: 30px;
+  height: 40px;
+  border-radius: 5px;
+  background: linear-gradient(170deg, #fffdf6, #f3ecdc);
+  box-shadow: 0 2px 0 var(--tile-mid), 0 4px 0 var(--tile-back), 0 6px 10px rgba(0, 0, 0, 0.18);
+  display: grid;
+  place-items: center;
+  font: 800 20px/1 "Hiragino Sans", "PingFang SC", "Noto Sans CJK JP", sans-serif;
+}
+.tile.red { color: #c2412b; }
+.tile.green { color: #3b6a48; }
+.tile.white::after {
+  content: "";
+  width: 16px;
+  height: 24px;
+  border: 2.5px solid #2a3f6e;
+  border-radius: 3px;
+}
+@media (max-width: 520px) { .tiles { display: none; } }
+
 main {
   max-width: 44rem;
   margin: 0 auto;
-  padding: 3rem max(1rem, env(safe-area-inset-right)) 4rem max(1rem, env(safe-area-inset-left));
+  padding: 1.5rem max(1rem, env(safe-area-inset-right)) 4rem max(1rem, env(safe-area-inset-left));
 }
-header { margin-bottom: 2rem; }
-.app { color: var(--muted); font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 0.25rem; }
-h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; }
-h2 { font-size: 1.25rem; margin: 2.25rem 0 0.5rem; }
+h2 { font-size: 1.3rem; margin: 2.25rem 0 0.5rem; }
 h3 { font-size: 1.05rem; margin: 1.5rem 0 0.25rem; }
-p, li { color: var(--text); }
 .meta { color: var(--muted); font-size: 0.95rem; }
 a { color: var(--accent); }
-nav.lang { display: flex; gap: 1rem; margin: 1rem 0 0; font-size: 0.95rem; }
+nav.lang { display: flex; gap: 0.5rem; margin: 0 0 1rem; }
+nav.lang a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: var(--surface);
+}
+
+/* Cards with a tile edge underneath */
 section.card {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 1.25rem 1.5rem;
   margin: 1.5rem 0;
+  box-shadow: 0 3px 0 var(--tile-mid), 0 6px 0 var(--tile-back);
 }
 section.card h2:first-child { margin-top: 0; }
+.section-title { font-size: 1.7rem; margin: 3rem 0 0.25rem; }
 hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 footer { color: var(--muted); font-size: 0.9rem; margin-top: 3rem; }

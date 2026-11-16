@@ -1,0 +1,52 @@
+/* Shared style for the OntwikkelPlanner app pages. System fonts only: nothing is loaded from elsewhere. */
+:root {
+  --bg: #f4eee1;
+  --surface: #fcf8ee;
+  --text: #1d1b18;
+  --muted: #5e5a52;
+  --line: #e2d8c3;
+  --accent: #c2412b;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #10231f;
+    --surface: #17302a;
+    --text: #eef4f1;
+    --muted: #a9bdb6;
+    --line: #2a4a42;
+    --accent: #f2c14e;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3rem max(1rem, env(safe-area-inset-right)) 4rem max(1rem, env(safe-area-inset-left));
+}
+header { margin-bottom: 2rem; }
+.app { color: var(--muted); font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 0.25rem; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; }
+h2 { font-size: 1.25rem; margin: 2.25rem 0 0.5rem; }
+h3 { font-size: 1.05rem; margin: 1.5rem 0 0.25rem; }
+p, li { color: var(--text); }
+.meta { color: var(--muted); font-size: 0.95rem; }
+a { color: var(--accent); }
+nav.lang { display: flex; gap: 1rem; margin: 1rem 0 0; font-size: 0.95rem; }
+section.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+section.card h2:first-child { margin-top: 0; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
+footer { color: var(--muted); font-size: 0.9rem; margin-top: 3rem; }
